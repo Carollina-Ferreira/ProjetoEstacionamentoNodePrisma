@@ -10,11 +10,16 @@ const veiculoRoute = require ("./src/routes/veiculo.route.js");
 const vagaRoute = require ("./src/routes/vaga.route.js");
 const movimentacaoRoute = require ("./src/routes/movimentacao.route.js");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./src/docs/swagger");
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use(express.json());
 app.use(cors());
 
 app.use("/usuario", usuarioRoute);
-app.use("/clientre", clienteRoute);
+app.use("/cliente", clienteRoute);
 app.use("/veiculo", veiculoRoute);
 app.use("/vaga", vagaRoute);
 app.use("/movimentacao", movimentacaoRoute);

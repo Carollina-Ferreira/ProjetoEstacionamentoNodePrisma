@@ -27,7 +27,7 @@ model cliente{
   nome String
   cpf String @unique
   telefone String
-  email String ?
+  email String?
   criadoEm DateTime @default(now())
 
   veiculo veiculo[]
